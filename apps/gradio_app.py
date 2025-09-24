@@ -9,6 +9,7 @@ from rag_architectures.hybrid_RAG import HybridRAG
 from rag_architectures.rerank_RAG import RerankRAG
 from rag_architectures.agentic_RAG import AgenticRAG
 from rag_architectures.online_RAG import OnlineRAG
+from rag_architectures.graph_RAG import GraphRAG
 
 # Load environment variables
 load_dotenv()
@@ -39,6 +40,8 @@ def get_rag_instance(arch: str, file_path: str = None):
             rag_instances[arch] = OnlineRAG()
         elif arch == "Agentic RAG":
             rag_instances[arch] = AgenticRAG(file_path=file_path)
+        elif arch == "Graph RAG":
+            rag_instances[arch] = GraphRAG(file_path=file_path)
         else:
             raise ValueError(f"Unknown RAG architecture: {arch}")
 
@@ -66,7 +69,8 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
                 "Hybrid RAG",
                 "Rerank RAG",
                 "Online RAG",
-                "Agentic RAG"
+                "Agentic RAG",
+                "Graph RAG"
             ],
             value="Standard RAG",
             label="Select RAG Architecture",

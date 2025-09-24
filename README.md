@@ -1,6 +1,6 @@
 # Experimentation Hub for RAG
 
-The **Experimentation Hub for RAG** is a comprehensive framework to create, test, and benchmark different Retrieval-Augmented Generation (RAG) pipelines. It supports advanced RAG architectures such as Agentic RAG and Online RAG, among others. The hub allows you to experiment with various splitters, embedding models, vectorstores, document retrievers, rerankers, LLM generators, and agentic configurations, while in experiments you can measure key performance metrics such as retrieval latency and generation speed. Additionally, it provides a Gradio-based UI for interactively querying different RAG architectures and offers full scalability for customizing pipelines and running experiments at any scale.
+The **Experimentation Hub for RAG** is a comprehensive framework to create, test, and benchmark different Retrieval-Augmented Generation (RAG) pipelines. It supports advanced RAG architectures such as Agentic RAG and Graph RAG, among others. The hub allows you to experiment with various splitters, embedding models, vectorstores, document retrievers, rerankers, LLM generators, and agentic configurations, while in experiments you can measure key performance metrics such as retrieval latency and generation speed. Additionally, it provides a Gradio-based UI for interactively querying different RAG architectures and offers full scalability for customizing pipelines and running experiments at any scale.
 
 ---
 
@@ -13,6 +13,7 @@ The **Experimentation Hub for RAG** is a comprehensive framework to create, test
   * Rerank RAG (retrieves documents then reranks them for relevance)
   * Online RAG (fetches documents from the web in real-time)
   * Agentic RAG (agent decides whether to use local retriever, web retriever, or conversation history)
+  * Graph RAG (represents documents as a graph of entities and relationships to answer queries via graph traversal)
 * Flexible **chunking strategies**:
   * Recursive, character-based, or token-based splitting
   * Configurable chunk size and overlap
@@ -56,6 +57,7 @@ The **Experimentation Hub for RAG** is a comprehensive framework to create, test
 │   │   ├── hybrid_RAG.py                 # Hybrid retriever (dense + sparse)
 │   │   ├── rerank_RAG.py                 # RAG with document reranker
 │   │   ├── online_RAG.py                 # Online RAG with web search
+│   │   ├── graph_RAG.py                  # Graph RAG
 │   │   └── agentic_RAG.py                # Agentic RAG with decision making
 │   ├── data_loaders.py                   # Load documents (PDFs, dirs, etc.)
 │   ├── splitters.py                      # Split documents into chunks
@@ -66,7 +68,8 @@ The **Experimentation Hub for RAG** is a comprehensive framework to create, test
 │   ├── generators.py                     # Wrapper for LLM providers (OpenAI, Anthropic, etc.)
 │   ├── memory.py                         # Conversation memory 
 │   ├── rag_chain.py                      # RAG chain logic (retriever + generator)
-│   └── agents.py                         # Agent workflow for source selection
+│   ├── agents.py                         # Agent workflow for source selection
+│   └── graph.py                          # Graph class: converts document chunks into a NetworkX-based entity graph using LLMGraphTransformer
 ├── tests/                                # Unit and integration tests
 │    └── ...
 ├── data/
