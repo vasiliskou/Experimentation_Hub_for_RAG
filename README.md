@@ -61,7 +61,7 @@ The **Experimentation Hub for RAG** is a comprehensive framework to create, test
 │   │   └── agentic_RAG.py                # Agentic RAG with decision making
 │   ├── data_loaders.py                   # Load documents (PDFs, dirs, etc.)
 │   ├── splitters.py                      # Split documents into chunks
-│   ├── embeddints.py                     # Load and manage embedding models
+│   ├── embeddings.py                     # Load and manage embedding models
 │   ├── vectorstores.py                   # Build and manage vector databases
 │   ├── retrievers.py                     # Implement different retriever classes
 │   ├── rerankers.py                      # Implement reranker models
